@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 class ExampleMosaicModule {
 }
@@ -28,7 +28,7 @@ ExampleMosaicModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 /**
  * \@title Basic buttons
@@ -45,15 +45,17 @@ ButtonBasicExample.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
-const /** @type {?} */ EXAMPLE_COMPONENTS = {
+/** @type {?} */
+const EXAMPLE_COMPONENTS = {
     'button-basic': {
         title: 'Basic buttons',
         component: ButtonBasicExample
     },
 };
-const /** @type {?} */ EXAMPLE_LIST = [
+/** @type {?} */
+const EXAMPLE_LIST = [
     ButtonBasicExample,
 ];
 class ExampleModule {
@@ -73,7 +75,7 @@ ExampleModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 /**
  * Example data
@@ -87,7 +89,8 @@ class ExampleData {
         if (!example || !EXAMPLE_COMPONENTS.hasOwnProperty(example)) {
             return;
         }
-        const /** @type {?} */ exampleConfig = EXAMPLE_COMPONENTS[example];
+        /** @type {?} */
+        const exampleConfig = EXAMPLE_COMPONENTS[example];
         // TODO(tinayuangao): Do not hard-code extensions
         this.exampleFiles = ['html', 'ts', 'css'].map(extension => `${example}-example.${extension}`);
         this.examplePath = `/assets/stackblitz/examples/${example}/`;
@@ -95,7 +98,8 @@ class ExampleData {
         if (exampleConfig.additionalFiles) {
             this.exampleFiles.push(...exampleConfig.additionalFiles);
         }
-        const /** @type {?} */ exampleName = example.replace(/(?:^\w|\b\w)/g, letter => letter.toUpperCase());
+        /** @type {?} */
+        const exampleName = example.replace(/(?:^\w|\b\w)/g, letter => letter.toUpperCase());
         this.description = exampleConfig.title || exampleName.replace(/[\-]+/g, ' ') + ' Example';
         this.componentName = exampleConfig.selectorName ||
             exampleName.replace(/[\-]+/g, '') + 'Example';
@@ -104,12 +108,12 @@ class ExampleData {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 
 export { ExampleData, EXAMPLE_COMPONENTS, EXAMPLE_LIST, ExampleModule, ButtonBasicExample, ExampleMosaicModule as ɵa };

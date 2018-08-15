@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 var ExampleMosaicModule = /** @class */ (function () {
     function ExampleMosaicModule() {
@@ -31,7 +31,7 @@ var ExampleMosaicModule = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 /**
  * \@title Basic buttons
@@ -51,15 +51,17 @@ var ButtonBasicExample = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
-var /** @type {?} */ EXAMPLE_COMPONENTS = {
+/** @type {?} */
+var EXAMPLE_COMPONENTS = {
     'button-basic': {
         title: 'Basic buttons',
         component: ButtonBasicExample
     },
 };
-var /** @type {?} */ EXAMPLE_LIST = [
+/** @type {?} */
+var EXAMPLE_LIST = [
     ButtonBasicExample,
 ];
 var ExampleModule = /** @class */ (function () {
@@ -82,7 +84,7 @@ var ExampleModule = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 /**
  * Example data
@@ -97,7 +99,8 @@ ExampleData = /** @class */ (function () {
         if (!example || !EXAMPLE_COMPONENTS.hasOwnProperty(example)) {
             return;
         }
-        var /** @type {?} */ exampleConfig = EXAMPLE_COMPONENTS[example];
+        /** @type {?} */
+        var exampleConfig = EXAMPLE_COMPONENTS[example];
         // TODO(tinayuangao): Do not hard-code extensions
         this.exampleFiles = ['html', 'ts', 'css'].map(function (extension) { return example + "-example." + extension; });
         this.examplePath = "/assets/stackblitz/examples/" + example + "/";
@@ -105,7 +108,8 @@ ExampleData = /** @class */ (function () {
         if (exampleConfig.additionalFiles) {
             (_a = this.exampleFiles).push.apply(_a, exampleConfig.additionalFiles);
         }
-        var /** @type {?} */ exampleName = example.replace(/(?:^\w|\b\w)/g, function (letter) { return letter.toUpperCase(); });
+        /** @type {?} */
+        var exampleName = example.replace(/(?:^\w|\b\w)/g, function (letter) { return letter.toUpperCase(); });
         this.description = exampleConfig.title || exampleName.replace(/[\-]+/g, ' ') + ' Example';
         this.componentName = exampleConfig.selectorName ||
             exampleName.replace(/[\-]+/g, '') + 'Example';
@@ -116,12 +120,12 @@ ExampleData = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
  */
 
 export { ExampleData, EXAMPLE_COMPONENTS, EXAMPLE_LIST, ExampleModule, ButtonBasicExample, ExampleMosaicModule as ɵa };
