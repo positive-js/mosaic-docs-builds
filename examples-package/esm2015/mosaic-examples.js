@@ -4,92 +4,72 @@
  *
  * Use of this source code is governed by an MIT-style license.
  */
+import { __decorate } from 'tslib';
 import { NgModule, Component } from '@angular/core';
 import { McButtonModule } from '@ptsecurity/mosaic';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
- */
-class ExampleMosaicModule {
-}
-ExampleMosaicModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [
-                    McButtonModule
-                ],
-                exports: [
-                    McButtonModule
-                ]
-            },] },
-];
+let ExampleMosaicModule = class ExampleMosaicModule {
+};
+ExampleMosaicModule = __decorate([
+    NgModule({
+        imports: [
+            McButtonModule
+        ],
+        exports: [
+            McButtonModule
+        ]
+    })
+], ExampleMosaicModule);
 
 /**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * @title Basic buttons
  */
-/**
- * \@title Basic buttons
- */
-class ButtonBasicExample {
-}
-ButtonBasicExample.decorators = [
-    { type: Component, args: [{
-                selector: 'button-basic-example',
-                template: "<button mc-button>Click me!</button>",
-                styles: ["/** No CSS for this example */ "]
-            },] },
-];
+let ButtonBasicExample = class ButtonBasicExample {
+};
+ButtonBasicExample = __decorate([
+    Component({
+        selector: 'button-basic-example',
+        template: "<button mc-button>Click me!</button>",
+        styles: ["/** No CSS for this example */ "]
+    })
+], ButtonBasicExample);
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
- */
-/** @type {?} */
 const EXAMPLE_COMPONENTS = {
     'button-basic': {
         title: 'Basic buttons',
         component: ButtonBasicExample
     },
 };
-/** @type {?} */
 const EXAMPLE_LIST = [
     ButtonBasicExample,
 ];
-class ExampleModule {
-}
-ExampleModule.decorators = [
-    { type: NgModule, args: [{
-                declarations: EXAMPLE_LIST,
-                entryComponents: EXAMPLE_LIST,
-                imports: [
-                    ExampleMosaicModule,
-                    FormsModule,
-                    ReactiveFormsModule,
-                    CommonModule
-                ]
-            },] },
-];
+let ExampleModule = class ExampleModule {
+};
+ExampleModule = __decorate([
+    NgModule({
+        declarations: EXAMPLE_LIST,
+        entryComponents: EXAMPLE_LIST,
+        imports: [
+            ExampleMosaicModule,
+            FormsModule,
+            ReactiveFormsModule,
+            CommonModule
+        ]
+    })
+], ExampleModule);
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
- */
+// The example-module file will be auto-generated. As soon as the
 /**
  * Example data
  *   with information about Component name, selector, files used in example, and path to examples
  */
 class ExampleData {
-    /**
-     * @param {?} example
-     */
     constructor(example) {
         if (!example || !EXAMPLE_COMPONENTS.hasOwnProperty(example)) {
             return;
         }
-        /** @type {?} */
         const exampleConfig = EXAMPLE_COMPONENTS[example];
         // TODO(tinayuangao): Do not hard-code extensions
         this.exampleFiles = ['html', 'ts', 'css'].map(extension => `${example}-example.${extension}`);
@@ -98,7 +78,6 @@ class ExampleData {
         if (exampleConfig.additionalFiles) {
             this.exampleFiles.push(...exampleConfig.additionalFiles);
         }
-        /** @type {?} */
         const exampleName = example.replace(/(?:^\w|\b\w)/g, letter => letter.toUpperCase());
         this.description = exampleConfig.title || exampleName.replace(/[\-]+/g, ' ') + ' Example';
         this.componentName = exampleConfig.selectorName ||
@@ -107,14 +86,8 @@ class ExampleData {
 }
 
 /**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ * Generated bundle index. Do not edit.
  */
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
- */
-
-export { ExampleData, EXAMPLE_COMPONENTS, EXAMPLE_LIST, ExampleModule, ButtonBasicExample, ExampleMosaicModule as ɵa };
+export { ExampleMosaicModule as ɵa, ExampleData, EXAMPLE_COMPONENTS, EXAMPLE_LIST, ExampleModule, ButtonBasicExample };
 //# sourceMappingURL=mosaic-examples.js.map
