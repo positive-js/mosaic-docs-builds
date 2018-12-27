@@ -1,1 +1,19 @@
-<html><head></head><body><div class="docs-markdown"><table class="docs-markdown-table"><thead><tr class="docs-markdown-tr"><th class="docs-markdown-th">Attribute</th><th class="docs-markdown-th">Description</th></tr></thead><tbody class="docs-markdown-tbody"><tr class="docs-markdown-tr"><td class="docs-markdown-td"><code class="docs-markdown-code">mc-tab-group</code></td><td class="docs-markdown-td"></td></tr><tr class="docs-markdown-tr"><td class="docs-markdown-td"><code class="docs-markdown-code">mc-tab</code></td></tr></tbody></table><h3 id="theming" class="docs-header-link docs-markdown-h3"><span header-link="theming"></span> Theming</h3><h3 id="accessibility" class="docs-header-link docs-markdown-h3"><span header-link="accessibility"></span> Accessibility</h3></div></body></html>
+<html><head></head><body><div class="docs-markdown"><h3 id="keycodes" class="docs-header-link docs-markdown-h3"><span header-link="keycodes"></span> KeyCodes</h3><p class="docs-markdown-p">Commonly used keycode constants.</p><h4 id="example" class="docs-header-link docs-markdown-h4"><span header-link="example"></span> Example</h4><pre class="docs-markdown-pre"><code class="lang-ts docs-markdown-code"><span class="hljs-keyword">import</span> {Directive} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> {UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/cdk/keycodes'</span>;
+
+<span class="hljs-meta">@Directive</span>({
+  selector: <span class="hljs-string">'[count-arrows]'</span>
+  host: {
+    (keypress): <span class="hljs-string">'handleKeyPress($event)'</span>
+  }
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ArrowCounterDirective {
+  arrowPressCount = <span class="hljs-number">0</span>;
+
+  handleKeyPress(event: KeyboardEvent) {
+    <span class="hljs-keyword">if</span> ([UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW].includes(event.keyCode)) {
+      <span class="hljs-keyword">this</span>.arrowPresscount++;
+    }
+  }
+}
+</code></pre></div></body></html>
