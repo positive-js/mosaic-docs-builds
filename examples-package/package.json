@@ -1,33 +1,33 @@
 {
-  "name": "@ptsecurity/mosaic-examples",
-  "version": "1.0.0-beta.0",
-  "description": "Mosaic Examples",
-  "main": "./bundles/mosaic-examples.umd.js",
-  "module": "./esm5/mosaic-examples.es5.js",
-  "es2015": "./esm2015/mosaic-examples.js",
-  "typings": "./mosaic-examples.d.ts",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "homepage": "https://github.com/positive-js/mosaic"
-  },
-  "keywords": [
-    "angular",
-    "mosaic",
-    "components"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/positive-js/mosaic/issues"
-  },
-  "homepage": "https://github.com/positive-js/mosaic#readme",
-  "peerDependencies": {
-    "@angular/cdk": "1.0.0-beta.0",
-    "@angular/core": ">=7.0.0",
-    "@angular/common": ">=7.0.0",
-    "@ptsecurity/mosaic": "1.0.0-beta.0"
-  },
-  "dependencies": {
-    "tslib": "^1.7.1"
-  }
+    "name": "@ptsecurity/mosaic-examples",
+    "version": "1.0.0-beta.0",
+    "description": "Mosaic Examples",
+    "main": "./bundles/mosaic-examples.umd.js",
+    "module": "./esm5/mosaic-examples.es5.js",
+    "es2015": "./esm2015/mosaic-examples.js",
+    "typings": "./mosaic-examples.d.ts",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "homepage": "https://github.com/positive-js/mosaic"
+    },
+    "keywords": [
+        "angular",
+        "mosaic",
+        "components"
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/positive-js/mosaic/issues"
+    },
+    "homepage": "https://github.com/positive-js/mosaic#readme",
+    "peerDependencies": {
+        "@angular/core": ">=7.0.0",
+        "@angular/common": ">=7.0.0",
+        "@ptsecurity/mosaic": "1.0.0-beta.0",
+        "@ptsecurity/cdk": "1.0.0-beta.0"
+    },
+    "dependencies": {
+        "tslib": "^1.7.1"
+    }
 }
