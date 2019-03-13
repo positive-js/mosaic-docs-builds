@@ -7,101 +7,101 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@ptsecurity/mosaic'), require('@angular/forms'), require('@angular/common')) :
 	typeof define === 'function' && define.amd ? define('@ptsecurity/mosaic-examples', ['exports', '@angular/core', '@ptsecurity/mosaic', '@angular/forms', '@angular/common'], factory) :
-	(factory((global.ng = global.ng || {}, global.ng['mosaic-examples'] = {}),global.ng.core,global.ng.mosaic,global.ng.forms,global.ng.common));
+	(factory((global.ng = global.ng || {}, global.ng.mosaicExamples = {}),global.ng.core,global.ng.mosaic,global.ng.forms,global.ng.common));
 }(this, (function (exports,core,mosaic,forms,common) { 'use strict';
 
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
-
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
-
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
-***************************************************************************** */
-
-function __decorate(decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-}
-
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 var ExampleMosaicModule = /** @class */ (function () {
     function ExampleMosaicModule() {
     }
-    ExampleMosaicModule = __decorate([
-        core.NgModule({
-            imports: [
-                mosaic.McButtonModule
-            ],
-            exports: [
-                mosaic.McButtonModule
-            ]
-        })
-    ], ExampleMosaicModule);
+    ExampleMosaicModule.decorators = [
+        { type: core.NgModule, args: [{
+                    imports: [
+                        mosaic.McButtonModule
+                    ],
+                    exports: [
+                        mosaic.McButtonModule
+                    ]
+                },] },
+    ];
     return ExampleMosaicModule;
 }());
 
 /**
- * @title Basic buttons
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * \@title Basic buttons
  */
 var ButtonBasicExample = /** @class */ (function () {
     function ButtonBasicExample() {
     }
-    ButtonBasicExample = __decorate([
-        core.Component({
-            selector: 'button-basic-example',
-            template: "<button mc-button>Click me!</button>",
-            styles: ["/** No CSS for this example */ "]
-        })
-    ], ButtonBasicExample);
+    ButtonBasicExample.decorators = [
+        { type: core.Component, args: [{
+                    selector: 'button-basic-example',
+                    template: "<button mc-button>Click me!</button>",
+                    styles: ["/** No CSS for this example */ "]
+                },] },
+    ];
     return ButtonBasicExample;
 }());
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
 var EXAMPLE_COMPONENTS = {
     'button-basic': {
         title: 'Basic buttons',
         component: ButtonBasicExample
     },
 };
+/** @type {?} */
 var EXAMPLE_LIST = [
     ButtonBasicExample,
 ];
 var ExampleModule = /** @class */ (function () {
     function ExampleModule() {
     }
-    ExampleModule = __decorate([
-        core.NgModule({
-            declarations: EXAMPLE_LIST,
-            entryComponents: EXAMPLE_LIST,
-            imports: [
-                ExampleMosaicModule,
-                forms.FormsModule,
-                forms.ReactiveFormsModule,
-                common.CommonModule
-            ]
-        })
-    ], ExampleModule);
+    ExampleModule.decorators = [
+        { type: core.NgModule, args: [{
+                    declarations: EXAMPLE_LIST,
+                    entryComponents: EXAMPLE_LIST,
+                    imports: [
+                        ExampleMosaicModule,
+                        forms.FormsModule,
+                        forms.ReactiveFormsModule,
+                        common.CommonModule
+                    ]
+                },] },
+    ];
     return ExampleModule;
 }());
 
-// The example-module file will be auto-generated. As soon as the
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 /**
  * Example data
  *   with information about Component name, selector, files used in example, and path to examples
  */
-var ExampleData = /** @class */ (function () {
+var   /**
+ * Example data
+ *   with information about Component name, selector, files used in example, and path to examples
+ */
+ExampleData = /** @class */ (function () {
     function ExampleData(example) {
         var _a;
         if (!example || !EXAMPLE_COMPONENTS.hasOwnProperty(example)) {
             return;
         }
+        /** @type {?} */
         var exampleConfig = EXAMPLE_COMPONENTS[example];
         // TODO(tinayuangao): Do not hard-code extensions
         this.exampleFiles = ['html', 'ts', 'css'].map(function (extension) { return example + "-example." + extension; });
@@ -110,6 +110,7 @@ var ExampleData = /** @class */ (function () {
         if (exampleConfig.additionalFiles) {
             (_a = this.exampleFiles).push.apply(_a, exampleConfig.additionalFiles);
         }
+        /** @type {?} */
         var exampleName = example.replace(/(?:^\w|\b\w)/g, function (letter) { return letter.toUpperCase(); });
         this.description = exampleConfig.title || exampleName.replace(/[\-]+/g, ' ') + ' Example';
         this.componentName = exampleConfig.selectorName ||
@@ -118,12 +119,12 @@ var ExampleData = /** @class */ (function () {
     return ExampleData;
 }());
 
-exports.ɵa = ExampleMosaicModule;
 exports.ExampleData = ExampleData;
 exports.EXAMPLE_COMPONENTS = EXAMPLE_COMPONENTS;
 exports.EXAMPLE_LIST = EXAMPLE_LIST;
 exports.ExampleModule = ExampleModule;
 exports.ButtonBasicExample = ButtonBasicExample;
+exports.ɵa = ExampleMosaicModule;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
