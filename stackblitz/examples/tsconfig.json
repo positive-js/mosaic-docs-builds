@@ -9,10 +9,10 @@
                 "../cdk/*"
             ],
             "@ptsecurity/mosaic/*": [
-                "../lib/*"
+                "../mosaic/*"
             ],
             "@ptsecurity/mosaic": [
-                "../lib/public-api.ts"
+                "../mosaic/public-api.ts"
             ]
         }
     },
