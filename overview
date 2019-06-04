@@ -1,1 +1,66 @@
-<html><head></head><body><div class="docs-markdown"><p class="docs-markdown-p">Mosaic cards are controls to display statuses/states/messages.</p><div mosaic-docs-example="card-overview"></div><h3 id="properties" class="docs-header-link docs-markdown-h3"><span header-link="properties"></span> Properties</h3><p class="docs-markdown-p">There are four properties to interact with control:</p><table class="docs-markdown-table"><thead><tr class="docs-markdown-tr"><th class="docs-markdown-th">Property</th><th class="docs-markdown-th">Description</th></tr></thead><tbody class="docs-markdown-tbody"><tr class="docs-markdown-tr"><td class="docs-markdown-td"><code class="docs-markdown-code">[status]</code></td><td class="docs-markdown-td">Enum value Status(Info, Success, Warning, Error). Default value is Status.Info. It set color visual state of control.</td></tr><tr class="docs-markdown-tr"><td class="docs-markdown-td"><code class="docs-markdown-code">[mode]</code></td><td class="docs-markdown-td">There are two values 'color' and 'white'. This affects how the background is displayed. Default value is 'color'</td></tr><tr class="docs-markdown-tr"><td class="docs-markdown-td"><code class="docs-markdown-code">[readonly]</code></td><td class="docs-markdown-td">When set to 'true' control is switched to not interactive mode. It can't be focused or selected</td></tr><tr class="docs-markdown-tr"><td class="docs-markdown-td"><code class="docs-markdown-code">[selected]</code></td><td class="docs-markdown-td">It switch control to the selected visual state.</td></tr></tbody></table><h3 id="events" class="docs-header-link docs-markdown-h3"><span header-link="events"></span> Events</h3><p class="docs-markdown-p">There is one output event:</p><table class="docs-markdown-table"><thead><tr class="docs-markdown-tr"><th class="docs-markdown-th">Event</th><th class="docs-markdown-th">Description</th></tr></thead><tbody class="docs-markdown-tbody"><tr class="docs-markdown-tr"><td class="docs-markdown-td"><code class="docs-markdown-code">(selectedChange)</code></td><td class="docs-markdown-td">It happens when user click on control and and [readonly] set to 'false'</td></tr></tbody></table><h3 id="content" class="docs-header-link docs-markdown-h3"><span header-link="content"></span> Content</h3><p class="docs-markdown-p">It is possible to add additional content on the left and on the right side from main content by using attributes 'content-left' and 'content-right'.</p><h3 id="theming" class="docs-header-link docs-markdown-h3"><span header-link="theming"></span> Theming</h3><h3 id="accessibility" class="docs-header-link docs-markdown-h3"><span header-link="accessibility"></span> Accessibility</h3></div></body></html>
+<html><head></head><body><div class="docs-markdown"><p class="docs-markdown-p">The <code class="docs-markdown-code">McSidepanelService</code> can be used to open sidepanels. These panels appear at the edge of the screen and can be used to perform some actions or display additional information without losing context.</p><p class="docs-markdown-p">You can open a sidepanel by calling <code class="docs-markdown-code">open</code> method with a component to be loaded or a template and an optional config object. The <code class="docs-markdown-code">open</code> method will return an instance of <code class="docs-markdown-code">McSidepanelRef</code>:</p><pre class="docs-markdown-pre"><code class="lang-ts docs-markdown-code"><span class="hljs-keyword">const</span> sidepanelRef = sidepanelService.open(ExampleSidepanelComponent, {
+    hasBackdrop: <span class="hljs-literal">false</span>
+});
+</code></pre><p class="docs-markdown-p">The <code class="docs-markdown-code">McSidepanelRef</code> is a reference to the opened sidepanel and can be used to close it or to receive notification when the sidepanel has been opened (after animation) or closed.</p><pre class="docs-markdown-pre"><code class="lang-ts docs-markdown-code">sidepanelRef.afterClosed().subscribe(<span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Sidepanel result: <span class="hljs-subst">${result}</span>`</span>); <span class="hljs-comment">// I was closed</span>
+});
+
+sidepanelRef.close(<span class="hljs-string">'I was closed'</span>);
+</code></pre><p class="docs-markdown-p">Note that multiple sidepanels can be open at a time. Any component contained inside of a sidepanel can inject the <code class="docs-markdown-code">McSidepanelRef</code> as well.</p><p class="docs-markdown-p">###Specifying global configuration defaults Default sidepanel options can be specified by providing an instance of <code class="docs-markdown-code">McSidepanelConfig</code> for <code class="docs-markdown-code">MC_SIDEPANEL_DEFAULT_OPTIONS</code> in your application's root module.</p><pre class="docs-markdown-pre"><code class="lang-ts docs-markdown-code"><span class="hljs-meta">@NgModule</span>({
+    providers: [
+        { provide: MC_SIDEPANEL_DEFAULT_OPTIONS, useValue: { hasBackdrop: <span class="hljs-literal">false</span> } }
+    ]
+})
+</code></pre><p class="docs-markdown-p">###Sharing data with the sidepanel component If you want to pass in some data to the sidepanel, you can do so by using <code class="docs-markdown-code">data</code> property in configuration:</p><pre class="docs-markdown-pre"><code class="lang-ts docs-markdown-code"><span class="hljs-keyword">const</span> sidepanelRef = sidepanelService.open(ExampleSidepanelComponent, {
+    data: { items: [<span class="hljs-string">'One'</span>, <span class="hljs-string">'Two'</span>, <span class="hljs-string">'Three'</span>] }
+});
+</code></pre><p class="docs-markdown-p">Afterwards you can access thr injected data using the <code class="docs-markdown-code">MC_SIDEPANEL_DATA</code> injection token:</p><pre class="docs-markdown-pre"><code class="lang-ts docs-markdown-code"><span class="hljs-keyword">import</span> { Component, Inject } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> { MC_SIDEPANEL_DATA } <span class="hljs-keyword">from</span> <span class="hljs-string">'@ptsecurity/mosaic'</span>;
+
+<span class="hljs-meta">@Component</span>({
+    template: <span class="hljs-string">'passed in {{ data.items }}'</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ExampleSidepanelComponent {
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-meta">@Inject</span>(MC_SIDEPANEL_DATA) <span class="hljs-keyword">public</span> data: <span class="hljs-built_in">any</span></span>) {}
+}
+</code></pre><h3 id="configuring-sidepanel-content-via-code-entrycomponents-code-" class="docs-header-link docs-markdown-h3"><span header-link="configuring-sidepanel-content-via-code-entrycomponents-code-"></span> Configuring sidepanel content via <code class="docs-markdown-code">entryComponents</code></h3><p class="docs-markdown-p"><code class="docs-markdown-code">McSidepanelService</code> instantiates components at run-time. In order for it to work, the Angular compiler needs extra information to create the necessary <code class="docs-markdown-code">ComponentFactory</code> for your sidepanel content component.</p><p class="docs-markdown-p">Any components that are include inside of a sidepanel have to be added to the <code class="docs-markdown-code">entryComponents</code> inside your <code class="docs-markdown-code">NgModule</code>.</p><pre class="docs-markdown-pre"><code class="lang-ts docs-markdown-code"><span class="hljs-meta">@NgModule</span>({
+  imports: [
+    <span class="hljs-comment">// ...</span>
+    McSidepanelModule
+  ],
+
+  declarations: [
+    AppComponent,
+    ExampleSidepanelComponent
+  ],
+
+  entryComponents: [
+    ExampleSidepanelComponent
+  ],
+
+  bootstrap: [AppComponent]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppModule {}
+</code></pre><h3 id="sidepanel-content" class="docs-header-link docs-markdown-h3"><span header-link="sidepanel-content"></span> Sidepanel content</h3><p class="docs-markdown-p">To structure your sidepanel content you can use several directives: <code class="docs-markdown-code">&lt;mc-sidepanel-header&gt;</code>, <code class="docs-markdown-code">&lt;mc-sidepanel-body&gt;</code>, <code class="docs-markdown-code">&lt;mc-sidepanel-footer&gt;</code> and <code class="docs-markdown-code">&lt;mc-sidepanel-actions&gt;</code>.</p><p class="docs-markdown-p">Also <code class="docs-markdown-code">mc-sidepanel-close</code> directive is available to mark button which need to close sidepanel. For example, cancel button in footer.</p><pre class="docs-markdown-pre"><code class="lang-html docs-markdown-code"><span class="hljs-tag">&lt;<span class="hljs-name">mc-sidepanel-header</span> [<span class="hljs-attr">closeable</span>]=<span class="hljs-string">"true"</span>&gt;</span>
+    Sidepanel Header
+<span class="hljs-tag">&lt;/<span class="hljs-name">mc-sidepanel-header</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mc-sidepanel-body</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"layout-padding"</span>&gt;</span>
+    Sidepanel Body
+<span class="hljs-tag">&lt;/<span class="hljs-name">mc-sidepanel-body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mc-sidepanel-footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mc-sidepanel-actions</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mc-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"doAnotherAction()"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Another Action<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mc-sidepanel-actions</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">mc-sidepanel-actions</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"right"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mc-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"doAction()"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Action<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mc-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"second"</span> <span class="hljs-attr">mc-sidepanel-close</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mc-sidepanel-actions</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mc-sidepanel-footer</span>&gt;</span>
+</code></pre><h4 id="keyboard-interaction" class="docs-header-link docs-markdown-h4"><span header-link="keyboard-interaction"></span> Keyboard interaction</h4><p class="docs-markdown-p">By default pressing the escape key will close the sidepanel. While this behavior can be turned off via the <code class="docs-markdown-code">disableClose</code> option, users should generally avoid doing so as it breaks the expected interaction pattern for screen-reader users.</p></div></body></html>
