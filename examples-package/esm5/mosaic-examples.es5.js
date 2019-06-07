@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var ExampleMosaicModule = /** @class */ (function () {
     function ExampleMosaicModule() {
@@ -31,7 +31,7 @@ var ExampleMosaicModule = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * \@title Basic buttons
@@ -51,7 +51,7 @@ var ButtonBasicExample = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 var EXAMPLE_COMPONENTS = {
@@ -84,7 +84,7 @@ var ExampleModule = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Example data
@@ -103,14 +103,22 @@ ExampleData = /** @class */ (function () {
         /** @type {?} */
         var exampleConfig = EXAMPLE_COMPONENTS[example];
         // TODO(tinayuangao): Do not hard-code extensions
-        this.exampleFiles = ['html', 'ts', 'css'].map(function (extension) { return example + "-example." + extension; });
+        this.exampleFiles = ['html', 'ts', 'css'].map((/**
+         * @param {?} extension
+         * @return {?}
+         */
+        function (extension) { return example + "-example." + extension; }));
         this.examplePath = "/assets/stackblitz/examples/" + example + "/";
         this.selectorName = this.indexFilename = example + "-example";
         if (exampleConfig.additionalFiles) {
             (_a = this.exampleFiles).push.apply(_a, exampleConfig.additionalFiles);
         }
         /** @type {?} */
-        var exampleName = example.replace(/(?:^\w|\b\w)/g, function (letter) { return letter.toUpperCase(); });
+        var exampleName = example.replace(/(?:^\w|\b\w)/g, (/**
+         * @param {?} letter
+         * @return {?}
+         */
+        function (letter) { return letter.toUpperCase(); }));
         this.description = exampleConfig.title || exampleName.replace(/[\-]+/g, ' ') + ' Example';
         this.componentName = exampleConfig.selectorName ||
             exampleName.replace(/[\-]+/g, '') + 'Example';
@@ -120,12 +128,12 @@ ExampleData = /** @class */ (function () {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 export { ExampleData, EXAMPLE_COMPONENTS, EXAMPLE_LIST, ExampleModule, ButtonBasicExample, ExampleMosaicModule as ɵa };
