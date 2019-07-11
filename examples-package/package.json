@@ -1,6 +1,6 @@
 {
     "name": "@ptsecurity/mosaic-examples",
-    "version": "8.0.0-beta.4",
+    "version": "8.0.0-beta.5",
     "description": "Mosaic Examples",
     "main": "./bundles/mosaic-examples.umd.js",
     "module": "./esm5/mosaic-examples.es5.js",
@@ -24,8 +24,8 @@
     "peerDependencies": {
         "@angular/core": ">=8.0.0",
         "@angular/common": ">=8.0.0",
-        "@ptsecurity/mosaic": "8.0.0-beta.4",
-        "@ptsecurity/cdk": "8.0.0-beta.4"
+        "@ptsecurity/mosaic": "8.0.0-beta.5",
+        "@ptsecurity/cdk": "8.0.0-beta.5"
     },
     "dependencies": {
         "tslib": "^1.7.1"
