@@ -108,9 +108,9 @@ class ExampleData {
          * @return {?}
          */
         (letter) => letter.toUpperCase()));
-        this.description = exampleConfig.title || exampleName.replace(/[\-]+/g, ' ') + ' Example';
+        this.description = exampleConfig.title || `${exampleName.replace(/[\-]+/g, ' ')} Example`;
         this.componentName = exampleConfig.selectorName ||
-            exampleName.replace(/[\-]+/g, '') + 'Example';
+            `${exampleName.replace(/[\-]+/g, '')} Example`;
     }
 }
 

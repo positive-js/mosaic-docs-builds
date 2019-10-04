@@ -48,8 +48,8 @@
 
     <span class="hljs-keyword">const</span> exampleName = example.replace(<span class="hljs-regexp">/(?:^\w|\b\w)/g</span>, <span class="hljs-function">(<span class="hljs-params">letter</span>) =&gt;</span> letter.toUpperCase());
 
-    <span class="hljs-keyword">this</span>.description = exampleConfig.title || exampleName.replace(<span class="hljs-regexp">/[\-]+/g</span>, <span class="hljs-string">' '</span>) + <span class="hljs-string">' Example'</span>;
+    <span class="hljs-keyword">this</span>.description = exampleConfig.title || <span class="hljs-string">`<span class="hljs-subst">${exampleName.replace(/[\-]+/g, ' ')}</span> Example`</span>;
     <span class="hljs-keyword">this</span>.componentName = exampleConfig.selectorName ||
-                          exampleName.replace(<span class="hljs-regexp">/[\-]+/g</span>, <span class="hljs-string">''</span>) + <span class="hljs-string">'Example'</span>;
+                          <span class="hljs-string">`<span class="hljs-subst">${exampleName.replace(/[\-]+/g, '')}</span> Example`</span>;
   }
 }
